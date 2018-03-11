@@ -1,0 +1,19 @@
+Q.
+We have 1000 users. Now we have a new feature (increase the size of the “like”
+button). We plan to roll out this feature to all of users, but gradually. Here’s our
+method:
+Day 1, we pick 10 random users, show them the new button.
+Day 2, we pick another 10 users, show them the new button.
+…
+Day 100, we pick the rest of 10 users, show them the new button.
+Question: how many days does it take for an average user to be picked?
+
+
+A. 
+1st day: 1*(1/100)
+2nd day: 2*((99/100)*(10/990))  # 1st day no pick * 2nd day picked
+3rd day: 3*((99/100)*(980/990)*(10/980))
+...
+
+result = [(1+100)*100]/2*(1/100) = 101/2 = 50.5
+
