@@ -1,0 +1,63 @@
+1. We have 1000 users. Now we have a new feature (increase the size of the “like” button). 
+We plan to roll out this feature to all of users, but gradually. Here’s our method:
+
+Day 1, we pick 10 random users, show them the new button.
+Day 2, we pick another 10 users, show them the new button.
+…
+Day 100, we pick the rest of 10 users, show them the new button.
+
+Question: how many days does it take for an average user to be picked?
+
+
+E[X]=1*10/1000+2*10/1000…..+100*10/1000=50.5
+
+
+2. Now you have a list of 1000 numbers. How do you find out the outliers of these numbers? 
+(Write answer in English, do not write any codes.)
+
+Depends on metric. We may need to find mean (μ) and standard deviation (σ). 
+Pick the minimum and maximum numbers, any number is not within this segment will be outliers.
+
+
+3. There are 10 coins. We know that 1 is biased, 9 are fair. The biased coin has p=0.8 to be head. 
+I picked up one coin and toss it 3 times: head, head, and tail. 
+What’s the probability that the coin I picked is the biased one? (Bayes’s theorem)
+
+Bayes’s theorem: p(A|B) = p(B|A)*p(A) / p(B)
+P(A) = P(A and B) + P(A and B) = P(A|B)P(B) + P(A|B)P(B)
+
+Result is HHT
+P(biased coin) = 0.1
+P(unbiased coin) = 1-0.1=0.9
+
+p(choose biased coin | HHT) = 
+P(HHT | choose biased coin ) * p(choose biased coin) / p(HHT)
+= (0.8*0.8*0.2)*0.1 / p(HHT|biased)*p(biased) + p(HHT|unbiased)*p(unbiased)
+= (0.8*0.8*0.2)*0.1/ [(0.8*0.8*0.2)*0.1 + (0.5*0.5*0.5)*0.9]
+= 128/1253
+= 10.21%
+
+
+4. You are BA in the email marketing group at Amazon. Say the product marketing manager (PMM) wants to run an email campaign. 
+What are some of the metrics you want to look at? Which metric do you think is the most important/relevant?  
+(Write down what metrics you chose and why.)
+
+Need to find out some rate related to email activities, such as open email rate, click link rate, purchase rate
+
+
+
+5.  Before running A/B tests, we need to figure out how many samples are needed to achieve a certain level of statistical power. 
+What are some of the ways to reduce required sample size? (
+Write down your answer and why; don’t have to write mathematical formula.) 
+
+
+Use p (power) , μ (mean), σ (standard deviation) and α (type I error) to calculate sample size.
+To reduce sample size, we can do:
+Decrease power (want 70% confidence, instead of 80%)
+Increase the level of uplift you want to detect (detect 10% difference, not 5%)
+Increase the magnitude of effect (μ1-μ2)
+Increase the value of α (normally 5%)
+Subset on population (filter out ineligible users)
+Change to a less volatile metric (σ standard deviation is smaller)
+Run longer (assume not too many repeated users)
+
